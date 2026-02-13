@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 interface LoginCredentials {
     email: string;
-    password: string;
+    password: string | number;
 }
 
 export default function LoginPage() {
