@@ -44,17 +44,29 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen bg-neutral-900 text-white selection:bg-vivid-accent selection:text-black">
+    <main className="min-h-screen bg-slate-950 text-white selection:bg-cyan-400 selection:text-black">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image with Overlay */}
+        {/* Background Video with Overlay */}
         <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2301&auto=format&fit=crop"
-            alt="Modern Interior"
-            className="w-full h-full object-cover opacity-40"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-neutral-900/80 via-neutral-900/60 to-neutral-900" />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-30"
+            style={{ pointerEvents: 'none' }}
+          >
+            <source src="https://www.pexels.com/download/video/3130284/" type="video/mp4" />
+            {/* Fallback image if video fails to load */}
+            <img
+              src="https://images.unsplash.com/photo-1659698328281-53fc377cebcb?q=80&w=1932&auto=format&fit=crop"
+              alt="Modern Tech"
+              className="w-full h-full object-cover opacity-30"
+            />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/95 via-blue-950/70 to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 via-transparent to-purple-900/20" />
         </div>
 
         <motion.div
@@ -65,10 +77,10 @@ export default function Home() {
         >
           <motion.div
             variants={itemVariants}
-            className="inline-block px-6 py-2 mb-8 rounded-full border border-vivid-accent/30 bg-vivid-accent/10 backdrop-blur-md"
+            className="inline-block px-6 py-2 mb-8 rounded-full border border-cyan-400/30 bg-cyan-500/10 backdrop-blur-md shadow-[0_0_30px_rgba(34,211,238,0.15)]"
           >
-            <span className="text-vivid-accent font-semibold tracking-wider uppercase text-sm">
-              Reimagining Digital Spaces
+            <span className="text-cyan-300 font-semibold tracking-wider uppercase text-sm">
+              🚀 The Future of Digital Design
             </span>
           </motion.div>
 
@@ -78,8 +90,7 @@ export default function Home() {
           >
             Design that <br />
             <span
-              className="text-transparent bg-clip-text bg-cover bg-center bg-no-repeat animate-pulse-slow"
-              style={{ backgroundImage: "url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2301&auto=format&fit=crop')" }}
+              className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 animate-gradient bg-[length:200%_auto]"
             >
               Inspires
             </span>
@@ -87,7 +98,7 @@ export default function Home() {
 
           <motion.p
             variants={itemVariants}
-            className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed font-light"
+            className="text-xl md:text-2xl text-blue-100/80 mb-12 max-w-3xl mx-auto leading-relaxed font-light"
           >
             We blend architectural elegance with digital performance to create
             experiences that are as beautiful as they are functional.
@@ -114,7 +125,7 @@ export default function Home() {
       </section>
 
       {/* Video & Tech Section */}
-      <section className="py-32 px-4 relative overflow-hidden bg-neutral-900">
+      <section className="py-32 px-4 relative overflow-hidden bg-blue-1205">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Text Content */}
           <motion.div
@@ -130,7 +141,7 @@ export default function Home() {
               Our approach combines fluid animations with structured layouts.
               Watch how we bring static elements to life with our unique design philosophy.
             </p>
-            <div className="flex items-center gap-4 text-sm font-medium text-gray-300">
+            <div className="flex items-center gap-4 text-sm font-medium text-blue-300">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-vivid-accent animate-pulse" />
                 Live Preview
@@ -164,7 +175,7 @@ export default function Home() {
 
             {/* Play Button Overlay */}
             <div className="absolute inset-0 flex items-center justify-center z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30">
+              <div className="w-16 h-16 bg-white/20 backdrop-blur-[15px] rounded-full flex items-center justify-center border border-white/30">
                 <span className="text-3xl">▶</span>
               </div>
             </div>
@@ -173,7 +184,7 @@ export default function Home() {
       </section>
 
       {/* Feature Showcase Grid */}
-      <section className="py-32 px-4 bg-black/30">
+      <section className="py-32 px-4 bg-blue-950/30">
         <div className="max-w-7xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
