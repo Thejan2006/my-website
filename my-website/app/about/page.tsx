@@ -42,6 +42,8 @@ export default function About() {
           <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-cyber-neon/20 rounded-full blur-[100px] animate-pulse-slow delay-1000 mix-blend-screen" />
         </div>
 
+
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
