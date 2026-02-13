@@ -84,7 +84,7 @@ export default function ContactPage() {
                             </div>
                             <div>
                                 <h3 className="font-bold text-lg text-white group-hover:text-cyber-neon transition-colors">Visit Us</h3>
-                                <p className="text-slate-400">123 Innovation Drive<br />Tech City, TC 90210</p>
+                                <p className="text-slate-400">101/C Pitiyegedara mawatha mapamdulla kulugammana<br />Nugawela,</p>
                             </div>
                         </div>
 
@@ -94,7 +94,7 @@ export default function ContactPage() {
                             </div>
                             <div>
                                 <h3 className="font-bold text-lg text-white group-hover:text-cyber-pink transition-colors">Email Us</h3>
-                                <p className="text-slate-400">hello@mywebsite.com<br />support@mywebsite.com</p>
+                                <p className="text-slate-400">hmagthejanbandar@gmil.com<br />support@mywebsite.com</p>
                             </div>
                         </div>
 
@@ -104,7 +104,7 @@ export default function ContactPage() {
                             </div>
                             <div>
                                 <h3 className="font-bold text-lg text-white group-hover:text-cyber-yellow transition-colors">Call Us</h3>
-                                <p className="text-slate-400">+1 (555) 123-4567<br />Mon-Fri, 9am-6pm EST</p>
+                                <p className="text-slate-400">+94 740305400<br />Mon-Fri, 9am-6pm EST</p>
                             </div>
                         </div>
                     </div>
