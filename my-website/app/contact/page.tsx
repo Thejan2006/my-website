@@ -69,42 +69,42 @@ export default function ContactPage() {
                     className="text-white space-y-8"
                 >
                     <div>
-                        <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                            Let's <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyber-neon to-cyber-pink animate-gradient bg-[length:200%_auto]">Talk</span>
+                        <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
+                            Let's <span className="text-transparent bg-clip-text bg-gradient-to-r from-vivid-primary via-vivid-secondary to-premium-gold animate-gradient bg-[length:200%_auto]">Talk</span>
                         </h1>
-                        <p className="text-slate-400 text-lg leading-relaxed">
-                            Have a project in mind? We'd love to hear from you. Send us a message and we'll get back to you as soon as possible.
+                        <p className="text-slate-300 text-lg leading-relaxed font-light max-w-lg">
+                            Have a vision in mind? We're here to transform it into reality. Reach out and let's create something extraordinary.
                         </p>
                     </div>
 
                     <div className="space-y-6">
-                        <div className="glass-card p-6 flex items-start space-x-4 hover:bg-white/5 transition-colors border border-white/5 hover:border-cyber-neon/30 group">
-                            <div className="bg-cyber-neon/10 p-3 rounded-lg text-cyber-neon group-hover:scale-110 transition-transform">
-                                📍
+                        <div className="glass-card p-6 flex items-start space-x-6 hover:bg-white/5 transition-colors border border-white/5 hover:border-vivid-primary/30 group rounded-2xl">
+                            <div className="bg-gradient-to-br from-vivid-primary/20 to-vivid-secondary/20 p-4 rounded-xl text-vivid-primary group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(124,58,237,0.2)]">
+                                <span className="text-2xl">📍</span>
                             </div>
                             <div>
-                                <h3 className="font-bold text-lg text-white group-hover:text-cyber-neon transition-colors">Visit Us</h3>
-                                <p className="text-slate-400">101/C Pitiyegedara mawatha mapamdulla kulugammana<br />Nugawela,</p>
+                                <h3 className="font-bold text-xl text-white group-hover:text-vivid-primary transition-colors mb-1">Visit Us</h3>
+                                <p className="text-slate-400 text-sm leading-relaxed">101/C Pitiyegedara mawatha<br />mapamdulla kulugammana, Nugawela</p>
                             </div>
                         </div>
 
-                        <div className="glass-card p-6 flex items-start space-x-4 hover:bg-white/5 transition-colors border border-white/5 hover:border-cyber-pink/30 group">
-                            <div className="bg-cyber-pink/10 p-3 rounded-lg text-cyber-pink group-hover:scale-110 transition-transform">
-                                📧
+                        <div className="glass-card p-6 flex items-start space-x-6 hover:bg-white/5 transition-colors border border-white/5 hover:border-vivid-secondary/30 group rounded-2xl">
+                            <div className="bg-gradient-to-br from-vivid-secondary/20 to-pink-500/20 p-4 rounded-xl text-vivid-secondary group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(219,39,119,0.2)]">
+                                <span className="text-2xl">📧</span>
                             </div>
                             <div>
-                                <h3 className="font-bold text-lg text-white group-hover:text-cyber-pink transition-colors">Email Us</h3>
-                                <p className="text-slate-400">hmagthejanbandar@gmil.com<br />support@mywebsite.com</p>
+                                <h3 className="font-bold text-xl text-white group-hover:text-vivid-secondary transition-colors mb-1">Email Us</h3>
+                                <p className="text-slate-400 text-sm">hmagthejanbandar@gmil.com<br />support@mywebsite.com</p>
                             </div>
                         </div>
 
-                        <div className="glass-card p-6 flex items-start space-x-4 hover:bg-white/5 transition-colors border border-white/5 hover:border-cyber-yellow/30 group">
-                            <div className="bg-cyber-yellow/10 p-3 rounded-lg text-cyber-yellow group-hover:scale-110 transition-transform">
-                                📞
+                        <div className="glass-card p-6 flex items-start space-x-6 hover:bg-white/5 transition-colors border border-white/5 hover:border-premium-gold/30 group rounded-2xl">
+                            <div className="bg-gradient-to-br from-premium-gold/20 to-orange-500/20 p-4 rounded-xl text-premium-gold group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(251,191,36,0.2)]">
+                                <span className="text-2xl">📞</span>
                             </div>
                             <div>
-                                <h3 className="font-bold text-lg text-white group-hover:text-cyber-yellow transition-colors">Call Us</h3>
-                                <p className="text-slate-400">+94 740305400<br />Mon-Fri, 9am-6pm EST</p>
+                                <h3 className="font-bold text-xl text-white group-hover:text-premium-gold transition-colors mb-1">Call Us</h3>
+                                <p className="text-slate-400 text-sm">+94 740305400<br />Mon-Fri, 9am-6pm EST</p>
                             </div>
                         </div>
                     </div>

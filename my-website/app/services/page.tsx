@@ -40,6 +40,12 @@ export default function Services() {
       description: 'Expert advice and guidance for your digital transformation',
       icon: '💡',
       features: ['Strategy', 'Technology', 'Process', 'Training']
+    },
+    {
+      title: 'Manegement',
+      description: 'Expert advice and guidance for your digital transformation',
+      icon: '👨🏻‍💻',
+      features: ['24/7 Support', 'Technology', 'Process', 'Clinet friendly']
     }
   ];
 
@@ -79,7 +85,7 @@ export default function Services() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 px-4 relative">
+      <section className="py-24 px-4 relative z-10">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
@@ -89,31 +95,33 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.03, y: -5 }}
-                className="glass-card p-8 hover:bg-white/5 transition-all group"
+                whileHover={{ scale: 1.02, y: -5 }}
+                className="glass-card p-8 group relative overflow-hidden border border-white/5 hover:border-vivid-primary/50 transition-all duration-300"
               >
+                <div className="absolute inset-0 bg-gradient-to-br from-vivid-primary/10 to-vivid-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
                 <motion.div
-                  whileHover={{ rotate: 360 }}
+                  whileHover={{ rotate: [0, -10, 10, 0] }}
                   transition={{ duration: 0.5 }}
-                  className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300"
+                  className="text-6xl mb-8 transform transition-transform duration-300 group-hover:scale-110 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"
                 >
                   {service.icon}
                 </motion.div>
 
-                <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-cyber-neon transition-colors">{service.title}</h3>
-                <p className="text-slate-400 mb-6">{service.description}</p>
+                <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-vivid-accent transition-colors relative z-10">
+                  {service.title}
+                </h3>
+                <p className="text-slate-400 mb-8 leading-relaxed relative z-10 font-light">
+                  {service.description}
+                </p>
 
-                <ul className="space-y-2">
+                <ul className="space-y-3 relative z-10">
                   {service.features.map((feature, idx) => (
                     <motion.li
                       key={idx}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.1 + idx * 0.05 }}
-                      className="flex items-center text-slate-300"
+                      className="flex items-center text-sm text-slate-300 group-hover:text-white transition-colors"
                     >
-                      <span className="text-cyber-neon mr-2">✓</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-vivid-secondary mr-3 shadow-[0_0_5px_#db2777]" />
                       {feature}
                     </motion.li>
                   ))}
@@ -125,37 +133,42 @@ export default function Services() {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 px-4">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-24 px-4 bg-black/20">
+        <div className="max-w-7xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl font-bold text-center mb-16 text-white"
+            className="text-4xl md:text-5xl font-bold text-center mb-20 text-white"
           >
-            Our Process
+            How We <span className="text-transparent bg-clip-text bg-gradient-to-r from-premium-gold to-vivid-secondary">Work</span>
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
-              { step: '01', title: 'Discovery', desc: 'Understanding your needs' },
-              { step: '02', title: 'Planning', desc: 'Creating the strategy' },
-              { step: '03', title: 'Execution', desc: 'Building the solution' },
-              { step: '04', title: 'Launch', desc: 'Delivering results' }
+              { step: '01', title: 'Discovery', desc: 'Understanding your unique vision and requirements.' },
+              { step: '02', title: 'Planning', desc: 'Crafting a strategic roadmap for success.' },
+              { step: '03', title: 'Execution', desc: 'Building with precision and cutting-edge tech.' },
+              { step: '04', title: 'Launch', desc: 'Delivering excellence to the world.' }
             ].map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
-                className="text-center glass-card p-6"
+                className="relative p-8 rounded-2xl border border-white/5 bg-white/5 backdrop-blur-sm group hover:bg-white/10 transition-colors"
               >
-                <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-cyber-neon to-cyber-pink mb-4 opacity-50">
+                <div className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white/10 to-white/5 mb-6 absolute -top-4 -right-4 select-none group-hover:scale-110 transition-transform duration-500">
                   {item.step}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-slate-400">{item.desc}</p>
+                <h3 className="text-xl font-bold text-vivid-primary mb-3 group-hover:text-vivid-secondary transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-slate-400 text-sm leading-relaxed group-hover:text-slate-300">
+                  {item.desc}
+                </p>
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-vivid-primary to-vivid-secondary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
               </motion.div>
             ))}
           </div>

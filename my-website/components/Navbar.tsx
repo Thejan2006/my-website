@@ -3,11 +3,20 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const links = [
     { href: '/', label: 'Home' },
@@ -21,16 +30,25 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-slate-900/80 backdrop-blur-md border-b border-white/10 sticky top-0 z-50 text-white"
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled
+          ? 'bg-black/80 backdrop-blur-xl border-b border-white/10 shadow-lg'
+          : 'bg-transparent'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
+          {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Link href="/" className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyber-neon to-cyber-pink animate-gradient bg-[length:200%_auto]">
-              MyWebsite
+            <Link href="/" className="flex items-center gap-2 group">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-vivid-primary to-vivid-secondary flex items-center justify-center text-white font-bold text-xl">
+                M
+              </div>
+              <span className="text-2xl font-bold text-white tracking-tight group-hover:text-vivid-accent transition-colors">
+                My<span className="text-vivid-secondary">Website</span>
+              </span>
             </Link>
           </motion.div>
 
@@ -43,10 +61,9 @@ export default function Navbar() {
                 className="relative group"
               >
                 <motion.span
-                  whileHover={{ scale: 1.1 }}
-                  className={`${pathname === link.href
-                    ? 'text-cyber-neon font-semibold'
-                    : 'text-slate-300 hover:text-white'
+                  className={`text-sm font-medium tracking-wide ${pathname === link.href
+                      ? 'text-white'
+                      : 'text-gray-400 group-hover:text-white'
                     } transition-colors duration-200`}
                 >
                   {link.label}
@@ -54,23 +71,30 @@ export default function Navbar() {
                 {pathname === link.href && (
                   <motion.div
                     layoutId="underline"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-cyber-neon shadow-[0_0_8px_rgba(0,243,255,0.8)]"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-vivid-primary to-vivid-secondary shadow-[0_0_10px_rgba(219,39,119,0.5)]"
                   />
                 )}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gray-600 transition-all group-hover:w-full opacity-50" />
               </Link>
             ))}
-            <Link
-              href="/login"
-              className="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/50 px-4 py-2 rounded-lg hover:bg-cyber-neon/20 hover:shadow-[0_0_15px_rgba(0,243,255,0.3)] transition-all font-medium"
-            >
-              Login
-            </Link>
+
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link
+                href="/login"
+                className="relative px-6 py-2.5 overflow-hidden rounded-full group bg-white/5 border border-white/10 hover:border-vivid-primary/50 transition-colors"
+              >
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-vivid-primary/20 to-vivid-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <span className="relative text-sm font-bold text-white group-hover:text-white transition-colors">
+                  Login
+                </span>
+              </Link>
+            </motion.div>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-white/10 text-slate-300"
+            className="md:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
           >
             <svg
               className="w-6 h-6"
@@ -89,46 +113,39 @@ export default function Navbar() {
             </svg>
           </button>
         </div>
-
-        {/* Mobile Menu */}
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden pb-4 bg-slate-900 border-t border-white/10"
-          >
-            {links.map((link, index) => (
-              <motion.div
-                key={link.href}
-                initial={{ x: -20, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <Link
-                  href={link.href}
-                  className={`block py-3 px-4 ${pathname === link.href
-                    ? 'bg-cyber-neon/10 text-cyber-neon'
-                    : 'text-slate-300 hover:bg-white/5'
-                    }`}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              </motion.div>
-            ))}
-            <div className="p-4">
-              <Link
-                href="/login"
-                className="block w-full text-center bg-cyber-neon/20 text-cyber-neon border border-cyber-neon/50 px-4 py-2 rounded-lg hover:bg-cyber-neon/30 hover:shadow-[0_0_15px_rgba(0,243,255,0.3)] transition-all font-medium"
-                onClick={() => setIsOpen(false)}
-              >
-                Login
-              </Link>
-            </div>
-          </motion.div>
-        )}
       </div>
+
+      {/* Mobile Menu */}
+      <motion.div
+        initial={false}
+        animate={isOpen ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
+        className="md:hidden overflow-hidden bg-black/95 backdrop-blur-xl border-b border-white/10"
+      >
+        <div className="px-4 pt-2 pb-6 space-y-2">
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`block py-3 px-4 rounded-xl text-base font-medium ${pathname === link.href
+                  ? 'bg-gradient-to-r from-vivid-primary/20 to-vivid-secondary/20 text-white'
+                  : 'text-gray-400 hover:text-white hover:bg-white/5'
+                }`}
+              onClick={() => setIsOpen(false)}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <div className="pt-4 mt-4 border-t border-white/10">
+            <Link
+              href="/login"
+              className="block w-full text-center py-3 rounded-xl bg-gradient-to-r from-vivid-primary to-vivid-secondary text-white font-bold shadow-lg shadow-vivid-primary/25"
+              onClick={() => setIsOpen(false)}
+            >
+              Login
+            </Link>
+          </div>
+        </div>
+      </motion.div>
     </motion.nav>
   );
 }

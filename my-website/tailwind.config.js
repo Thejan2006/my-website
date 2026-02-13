@@ -40,6 +40,15 @@ module.exports = {
           pink: '#ff00ff',
           yellow: '#fcee0a',
         },
+        vivid: {
+          primary: '#7c3aed',   // Violet
+          secondary: '#db2777', // Pink
+          accent: '#06b6d4',    // Cyan
+        },
+        premium: {
+          gold: '#fbbf24',
+          dark: '#1c1917',
+        },
         dark: {
           bg: '#0f172a',
           card: '#1e293b',

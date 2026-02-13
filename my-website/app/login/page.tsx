@@ -228,24 +228,43 @@ export default function LoginPage() {
                                     )}
 
                                     <div>
-                                        <button
-                                            type="submit"
-                                            disabled={loading}
-                                            className="group relative w-full flex justify-center py-3 px-4 border border-transparent rounded-lg text-sm font-bold text-white overflow-hidden shadow-lg shadow-primary-500/30 transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
-                                        >
-                                            <div className="absolute inset-0 bg-gradient-to-r from-primary-600 via-secondary-500 to-primary-600 animate-gradient w-[200%] h-full"></div>
-                                            <span className="relative flex items-center">
-                                                {loading ? (
-                                                    <>
-                                                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                                        </svg>
-                                                        Authenticating...
-                                                    </>
-                                                ) : "Sign in"}
-                                            </span>
-                                        </button>
+                                        <div className="space-y-4">
+                                            <button
+                                                type="submit"
+                                                disabled={loading}
+                                                className="group relative w-full flex justify-center py-3 px-4 border border-transparent rounded-lg text-sm font-bold text-white overflow-hidden shadow-lg shadow-vivid-primary/30 transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
+                                            >
+                                                <div className="absolute inset-0 bg-gradient-to-r from-vivid-primary via-vivid-secondary to-vivid-primary animate-gradient w-[200%] h-full"></div>
+                                                <span className="relative flex items-center">
+                                                    {loading ? (
+                                                        <>
+                                                            <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                                            </svg>
+                                                            Accessing System...
+                                                        </>
+                                                    ) : "Initialize Session"}
+                                                </span>
+                                            </button>
+
+                                            {/* System Log Simulation */}
+                                            {loading && (
+                                                <motion.div
+                                                    initial={{ opacity: 0, height: 0 }}
+                                                    animate={{ opacity: 1, height: 'auto' }}
+                                                    className="bg-black/50 rounded-lg p-3 font-mono text-xs text-green-400 border border-green-500/30 overflow-hidden"
+                                                >
+                                                    <CursorBlinker text={[
+                                                        "> Establishing secure connection...",
+                                                        "> Verifying credentials...",
+                                                        "> Handshaking with server...",
+                                                        "> Decrypting user data...",
+                                                        "> Access granted."
+                                                    ]} />
+                                                </motion.div>
+                                            )}
+                                        </div>
                                     </div>
                                 </motion.form>
                             )}
@@ -255,8 +274,8 @@ export default function LoginPage() {
                             <div className="mt-8 text-center">
                                 <p className="text-slate-400 text-sm">
                                     Don't have an account?{' '}
-                                    <Link href="/contact" className="text-cyber-neon font-medium hover:text-white transition-colors">
-                                        Contact Support
+                                    <Link href="/contact" className="text-vivid-accent font-medium hover:text-white transition-colors">
+                                        Request Access
                                     </Link>
                                 </p>
                             </div>
@@ -267,12 +286,50 @@ export default function LoginPage() {
                                 href="/"
                                 className="text-xs text-slate-500 hover:text-slate-300 transition-colors flex items-center justify-center gap-2 group"
                             >
-                                <span className="group-hover:-translate-x-1 transition-transform">←</span> Back to Home
+                                <span className="group-hover:-translate-x-1 transition-transform">←</span> Back to Nexus
                             </Link>
                         </div>
                     </div>
                 </div>
             </motion.div>
+        </div>
+    );
+}
+
+function CursorBlinker({ text }: { text: string[] }) {
+    const [index, setIndex] = useState(0);
+    const [displayedText, setDisplayedText] = useState("");
+    const [lineIndex, setLineIndex] = useState(0);
+
+    useEffect(() => {
+        if (lineIndex < text.length) {
+            if (index < text[lineIndex].length) {
+                const timeout = setTimeout(() => {
+                    setDisplayedText((prev) => prev + text[lineIndex].charAt(index));
+                    setIndex(index + 1);
+                }, 30);
+                return () => clearTimeout(timeout);
+            } else {
+                const timeout = setTimeout(() => {
+                    if (lineIndex < text.length - 1) {
+                        setDisplayedText((prev) => prev + "\n");
+                        setLineIndex(lineIndex + 1);
+                        setIndex(0);
+                    }
+                }, 400);
+                return () => clearTimeout(timeout);
+            }
+        }
+    }, [index, text, lineIndex]);
+
+    return (
+        <div className="whitespace-pre-line">
+            {displayedText}
+            <motion.span
+                animate={{ opacity: [0, 1, 0] }}
+                transition={{ duration: 0.8, repeat: Infinity }}
+                className="inline-block w-2 h-4 bg-green-400 ml-1 align-middle"
+            />
         </div>
     );
 }

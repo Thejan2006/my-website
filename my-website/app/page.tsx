@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-
 export default function Home() {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -28,159 +27,197 @@ export default function Home() {
 
   const features = [
     {
-      title: 'Modern Design',
-      description: 'Beautiful and responsive design that works on all devices',
-      icon: '🎨'
+      title: 'Modern Aesthetics',
+      description: 'Clean lines and sophisticated color palettes that create a stunning visual impact.',
+      image: 'https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2700&auto=format&fit=crop'
     },
     {
-      title: 'Fast Performance',
-      description: 'Optimized for speed and performance with Next.js',
-      icon: '⚡'
+      title: 'High Performance',
+      description: 'Optimized experiences that load instantly and respond immediately to user interaction.',
+      image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2670&auto=format&fit=crop'
     },
     {
-      title: 'Smooth Animations',
-      description: 'Engaging animations powered by Framer Motion',
-      icon: '✨'
+      title: 'Fluid Motion',
+      description: 'Silky smooth animations that guide the user journey with elegance and purpose.',
+      image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop'
     }
   ];
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-neutral-900 text-white selection:bg-vivid-accent selection:text-black">
       {/* Hero Section */}
-      <section className="relative overflow-hidden min-h-[90vh] flex items-center justify-center px-4">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2301&auto=format&fit=crop"
+            alt="Modern Interior"
+            className="w-full h-full object-cover opacity-40"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-neutral-900/80 via-neutral-900/60 to-neutral-900" />
+        </div>
+
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="max-w-7xl mx-auto text-center z-10"
+          className="relative z-10 max-w-7xl mx-auto px-4 text-center"
         >
           <motion.div
             variants={itemVariants}
-            className="inline-block px-4 py-1.5 mb-6 rounded-full border border-cyber-neon/30 bg-cyber-neon/10 text-cyber-neon text-sm font-medium backdrop-blur-sm shadow-[0_0_15px_rgba(0,243,255,0.3)] animate-pulse-slow"
+            className="inline-block px-6 py-2 mb-8 rounded-full border border-vivid-accent/30 bg-vivid-accent/10 backdrop-blur-md"
           >
-            🚀 The Future of Web Design is Here
+            <span className="text-vivid-accent font-semibold tracking-wider uppercase text-sm">
+              Reimagining Digital Spaces
+            </span>
           </motion.div>
 
           <motion.h1
             variants={itemVariants}
-            className="text-5xl md:text-8xl font-bold mb-8 tracking-tight"
+            className="text-6xl md:text-8xl font-black mb-8 tracking-tighter"
           >
-            Create <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyber-neon via-primary-400 to-cyber-purple animate-gradient bg-[length:200%_auto]">Something</span> <br />
-            <span className="text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">Extraordinary</span>
+            Design that <br />
+            <span
+              className="text-transparent bg-clip-text bg-cover bg-center bg-no-repeat animate-pulse-slow"
+              style={{ backgroundImage: "url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2301&auto=format&fit=crop')" }}
+            >
+              Inspires
+            </span>
           </motion.h1>
 
           <motion.p
             variants={itemVariants}
-            className="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed font-light"
           >
-            Experience the next generation of web development with stunning animations,
-            glassmorphism effects, and seamless navigation.
+            We blend architectural elegance with digital performance to create
+            experiences that are as beautiful as they are functional.
           </motion.p>
 
           <motion.div
             variants={itemVariants}
-            className="flex gap-6 justify-center flex-wrap"
+            className="flex flex-col md:flex-row gap-6 justify-center items-center"
           >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link
-                href="/services"
-                className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white px-8 py-4 rounded-full font-bold shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40 transition-all"
-              >
-                Get Started
-              </Link>
-            </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link
-                href="/contact"
-                className="bg-white/5 text-white px-8 py-4 rounded-full font-bold backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors"
-              >
-                Contact Us
-              </Link>
-            </motion.div>
+            <Link
+              href="/services"
+              className="px-10 py-5 bg-gradient-to-r from-vivid-primary to-vivid-secondary rounded-full font-bold text-lg hover:shadow-[0_0_30px_rgba(124,58,237,0.5)] transition-all transform hover:-translate-y-1"
+            >
+              Explore Projects
+            </Link>
+            <Link
+              href="/contact"
+              className="px-10 py-5 bg-white/5 border border-white/10 rounded-full font-bold text-lg backdrop-blur-sm hover:bg-white/10 transition-all"
+            >
+              Get in Touch
+            </Link>
           </motion.div>
         </motion.div>
-
-        {/* Floating Elements */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-600/20 rounded-full blur-3xl -z-10 animate-pulse-slow" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary-600/20 rounded-full blur-3xl -z-10 animate-pulse-slow delay-1000" />
       </section>
 
-      {/* Features Section */}
-      <section className="py-24 px-4 relative">
-        <div className="max-w-7xl mx-auto">
+      {/* Video & Tech Section */}
+      <section className="py-32 px-4 relative overflow-hidden bg-neutral-900">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Text Content */}
           <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+              Experience the <span className="text-vivid-accent">Future</span> of Design
+            </h2>
+            <p className="text-gray-400 text-lg mb-8 leading-relaxed">
+              Our approach combines fluid animations with structured layouts.
+              Watch how we bring static elements to life with our unique design philosophy.
+            </p>
+            <div className="flex items-center gap-4 text-sm font-medium text-gray-300">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-vivid-accent animate-pulse" />
+                Live Preview
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-vivid-secondary" />
+                4K Resolution
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Video Container */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10 group"
+          >
+            <div className="absolute inset-0 bg-gradient-to-tr from-vivid-primary/20 to-transparent z-10 pointer-events-none" />
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+            >
+              <source src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+
+            {/* Play Button Overlay */}
+            <div className="absolute inset-0 flex items-center justify-center z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30">
+                <span className="text-3xl">▶</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Feature Showcase Grid */}
+      <section className="py-32 px-4 bg-black/30">
+        <div className="max-w-7xl mx-auto">
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-4xl md:text-5xl font-bold text-center mb-20"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-              Why Choose Us?
-            </h2>
-            <p className="text-slate-400 max-w-2xl mx-auto">
-              We combine cutting-edge technology with visually stunning design to create unique digital experiences.
-            </p>
-          </motion.div>
+            Crafted for <span className="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-vivid-secondary to-premium-gold">Excellence</span>
+          </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
                 whileHover={{ y: -10 }}
-                className="glass-card p-8 hover:border-primary-500/30 transition-colors group"
+                className="group relative rounded-2xl overflow-hidden h-[400px] shadow-2xl"
               >
-                <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300 transform origin-left">
-                  {feature.icon}
+                {/* Background Image */}
+                <div className="absolute inset-0 z-0">
+                  <img
+                    src={feature.image}
+                    alt={feature.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90" />
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-primary-300 transition-colors">
-                  {feature.title}
-                </h3>
-                <p className="text-slate-400 leading-relaxed">
-                  {feature.description}
-                </p>
+
+                {/* Content */}
+                <div className="absolute bottom-0 left-0 p-8 z-10">
+                  <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-vivid-accent transition-colors">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-300 leading-relaxed text-sm opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                    {feature.description}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-24 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-900/50 to-secondary-900/50 backdrop-blur-sm -z-10" />
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="max-w-5xl mx-auto text-center bg-slate-800/50 border border-white/10 rounded-3xl p-12 md:p-20 relative overflow-hidden"
-        >
-          {/* Background Glow */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-primary-500/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary-500/20 rounded-full blur-3xl" />
-
-          <h2 className="text-4xl md:text-6xl font-bold mb-8 text-white relative z-10">
-            Ready to <span className="text-gradient">Transform</span> Your Idea?
-          </h2>
-          <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto relative z-10">
-            Join thousands of satisfied customers and start your journey with us today.
-          </p>
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="relative z-10"
-          >
-            <Link
-              href="/contact"
-              className="bg-white text-slate-900 px-10 py-5 rounded-full font-bold shadow-xl hover:shadow-2xl transition-all"
-            >
-              Start Project Now
-            </Link>
-          </motion.div>
-        </motion.div>
       </section>
     </main>
   );

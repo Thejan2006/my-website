@@ -10,6 +10,29 @@ export default function About() {
     { name: 'David Brown', role: 'Developer', image: '👨‍🔧' },
   ];
 
+  const features = [
+    {
+      title: "Innovation",
+      description: "We lead with cutting-edge performance and high-speed execution to redefine digital boundaries.",
+      emoji: "🚀"
+    },
+    {
+      title: "Quality",
+      description: "Our design features smooth 60fps animations and fluid transitions for a premium user feel.",
+      emoji: "✨"
+    },
+    {
+      title: "Integrity",
+      description: "We prioritize clean, efficient code and transparent architecture in every project we build.",
+      emoji: "🛡️"
+    },
+    {
+      title: "Collaboration",
+      description: "Built for seamless teamwork, our systems ensure high throughput and reliable connectivity.",
+      emoji: "🤝"
+    }
+  ];
+
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
@@ -110,7 +133,9 @@ export default function About() {
 
       {/* Values Section */}
       <section className="py-20 px-4">
+
         <div className="max-w-4xl mx-auto">
+
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -120,28 +145,38 @@ export default function About() {
             Our Values
           </motion.h2>
 
-          <div className="space-y-8">
-            {['Innovation', 'Quality', 'Integrity', 'Collaboration'].map((value, index) => (
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              visible: { transition: { staggerChildren: 0.1 } }
+            }}
+            className="space-y-8"
+          >
+            {features.map((item, index) => (
               <motion.div
-                key={value}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="glass-card p-8 flex items-center space-x-6 hover:bg-white/5 transition-colors"
+                key={item.title}
+                variants={{
+                  hidden: { opacity: 0, x: index % 2 === 0 ? -50 : 50 },
+                  visible: { opacity: 1, x: 0 }
+                }}
+                whileHover={{ scale: 1.02 }}
+                className="glass-card p-8 flex items-center space-x-6 hover:bg-white/5 transition-colors group border border-white/5 hover:border-vivid-primary/30"
               >
-                <div className="text-3xl bg-cyber-yellow/20 p-4 rounded-full text-cyber-yellow shadow-[0_0_10px_rgba(252,238,10,0.3)]">
-                  ✨
+                <div className="text-4xl bg-gradient-to-br from-vivid-primary/20 to-vivid-secondary/20 p-4 rounded-full text-white shadow-[0_0_15px_rgba(124,58,237,0.3)] group-hover:scale-110 transition-transform duration-300">
+                  {item.emoji}
                 </div>
+
                 <div>
-                  <h3 className="text-2xl font-bold text-white mb-2">{value}</h3>
-                  <p className="text-slate-300">
-                    We believe in {value.toLowerCase()} and strive to embody it in everything we do.
+                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-vivid-primary transition-colors">{item.title}</h3>
+                  <p className="text-slate-300 group-hover:text-white transition-colors">
+                    {item.description}
                   </p>
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
     </main>
