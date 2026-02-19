@@ -80,7 +80,7 @@ export default function Contact() {
                   <div className="text-2xl mr-4">📧</div>
                   <div>
                     <h3 className="font-bold text-gray-800 mb-1">Email</h3>
-                    <p className="text-gray-600">contact@mywebsite.com</p>
+                    <p className="text-gray-600">hmagthejanbandar@gmail.com</p>
                   </div>
                 </motion.div>
                 
@@ -91,7 +91,7 @@ export default function Contact() {
                   <div className="text-2xl mr-4">📞</div>
                   <div>
                     <h3 className="font-bold text-gray-800 mb-1">Phone</h3>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
+                    <p className="text-gray-600">+94 740305400</p>
                   </div>
                 </motion.div>
                 
@@ -102,7 +102,7 @@ export default function Contact() {
                   <div className="text-2xl mr-4">📍</div>
                   <div>
                     <h3 className="font-bold text-gray-800 mb-1">Address</h3>
-                    <p className="text-gray-600">123 Business St, Suite 100<br />San Francisco, CA 94102</p>
+                    <p className="text-gray-600">101/C ptityegedara mawtaha mapamdulla kulugammana<br />Nugawela/Kandy</p>
                   </div>
                 </motion.div>
               </div>
@@ -239,6 +239,10 @@ export default function Contact() {
             </div>
           </motion.div>
         </div>
+
+
+
+
       </section>
     </main>
   );
