@@ -29,7 +29,7 @@ export default function Home() {
     {
       title: 'Modern Aesthetics',
       description: 'Clean lines and sophisticated color palettes that create a stunning visual impact.',
-      image: 'https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2700&auto=format&fit=crop'
+      image: 'https://media.istockphoto.com/id/2220418831/photo/agentic-ai-interface-with-layered-data-visualization.webp?a=1&b=1&s=612x612&w=0&k=20&c=0XTpJbAKIzwhxufyagfrXmXnkL196W-4oUyj4h1Kmkk='
     },
     {
       title: 'High Performance',
