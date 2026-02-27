@@ -101,7 +101,7 @@ export default function Home() {
             className="text-xl md:text-2xl text-blue-100/80 mb-12 max-w-3xl mx-auto leading-relaxed font-light"
           >
             We blend architectural elegance with digital performance to create
-            experiences that are as beautiful as they are functional.
+            experiences that are as beautiful as they are functional. 
           </motion.p>
 
           <motion.div
@@ -116,7 +116,7 @@ export default function Home() {
             </Link>
             <Link
               href="/contact"
-              className="px-10 py-5 bg-white/5 border border-white/10 rounded-full font-bold text-lg backdrop-blur-sm hover:bg-white/10 transition-all"
+               className="px-10 py-5 bg-white/5 border border-white/10 rounded-full font-bold text-lg backdrop-blur-sm hover:bg-white/10 transition-all"
             >
               Get in Touch
             </Link>

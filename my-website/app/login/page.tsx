@@ -105,16 +105,16 @@ export default function LoginPage() {
                 <div className="text-center mb-8">
                     <Link href="/" className="group inline-block">
                         <motion.h1
-                            className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyber-neon via-primary-400 to-cyber-purple drop-shadow-lg group-hover:scale-105 transition-transform duration-300"
+                            className="text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyber-neon via-primary-400 to-cyber-purple drop-shadow-lg group-hover:scale-105 transition-transform duration-300"
                             animate={{ backgroundPosition: ["0% center", "200% center"] }}
                             transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
                             style={{ backgroundSize: "200% auto" }}
                         >
-                            MyWebsite
+                            CodeNexus
                         </motion.h1>
                     </Link>
-                    <h2 className="mt-6 text-2xl font-bold text-white tracking-wide">
-                        Welcome Back
+                    <h2 className="mt-6 text-4xl font-bold text-white tracking-wide">
+                        Login
                     </h2>
                     <p className="mt-2 text-sm text-slate-400">
                         Enter the portal to continue

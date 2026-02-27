@@ -44,10 +44,10 @@ export default function Navbar() {
           >
             <Link href="/" className="flex items-center gap-2 group">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-vivid-primary to-vivid-secondary flex items-center justify-center text-white font-bold text-xl">
-                M
+                C
               </div>
-              <span className="text-2xl font-bold text-white tracking-tight group-hover:text-vivid-accent transition-colors">
-                My<span className="text-vivid-secondary">Website</span>
+              <span className="text-3xl font-bold text-white tracking-tight group-hover:text-vivid-accent transition-colors">
+                <span className="text-vivid-secondary">CodeNexus</span>
               </span>
             </Link>
           </motion.div>
