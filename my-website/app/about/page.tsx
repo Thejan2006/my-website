@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 
 export default function About() {
   const teamMembers = [
-    { name: 'Alice Johnson', role: 'CEO & Founder', image: '👩‍💼' },
-    { name: 'Bob Smith', role: 'CTO', image: '👨‍💻' },
-    { name: 'Carol Williams', role: 'Design Lead', image: '👩‍🎨' },
-    { name: 'David Brown', role: 'Developer', image: '👨‍🔧' },
+    { name: 'Herath', role: 'CEO & Founder', image: '👩‍💼' },
+    { name: 'Bandara', role: 'CTO', image: '👨‍💻' },
+    { name: 'Dumidu', role: 'Design Lead', image: '👩‍🎨' },
+    { name: 'Thejan', role: 'Developer', image: '👨‍🔧' },
   ];
 
   const features = [
@@ -51,9 +51,9 @@ export default function About() {
           className="max-w-4xl mx-auto text-center"
         >
           <motion.h1
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 1, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.1 }}
             className="text-5xl md:text-6xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyber-neon to-cyber-pink animate-gradient bg-[length:200%_auto]"
           >
             About Us
@@ -64,7 +64,7 @@ export default function About() {
             transition={{ delay: 0.4 }}
             className="text-xl text-slate-300"
           >
-            We're passionate about creating amazing digital experiences
+            We're passionate about creating amazing digital experiences and new technology 
           </motion.p>
         </motion.div>
       </section>
@@ -78,20 +78,40 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="glass-card p-8 md:p-12"
-          >
-            <h2 className="text-4xl font-bold mb-6 text-white">Our Story</h2>
+          >  
+      <motion.div
+
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="max-w-4xl mx-auto text-center ">
+          
+            <motion.h2
+                    initial={{ opacity: 1, scale: 1 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.1 }}
+                    className="text-5xl md:text-6xl font-400px mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyber-neon to-cyber-pink animate-gradient bg-[length:200%_auto]">                                                                                                                                                                        
+                            Our Story
+            </motion.h2>
+                
+        
+        </motion.div>      
             <p className="text-lg text-slate-300 mb-4">
-              Founded in 2020, we started with a simple mission: to create beautiful,
-              functional websites that help businesses thrive in the digital age.
+              We are a modern web development team start    02/02/2026  ,&specializing in building high-performance
+               applications using Next.js. Our mission is to create fast, scalable, and SEO-optimized 
+               digital experiences that help businesses grow in today’s competitive online world.
             </p>
             <p className="text-lg text-slate-300 mb-4">
-              Over the years, we've grown into a team of passionate designers, developers,
-              and strategists who are committed to delivering exceptional results for our clients.
+              Using the power of Next.js — including Server-Side Rendering (SSR), Static Site Generatio
+               (SSG), and API routes — we develop secure, responsive, and user-friendly web applications
+                tailored to client needs..
             </p>
             <p className="text-lg text-slate-300">
               Today, we're proud to have worked with hundreds of clients across various
               industries, helping them achieve their digital goals and grow their businesses.
+              
             </p>
+
           </motion.div>
         </div>
       </section>
